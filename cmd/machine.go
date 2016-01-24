@@ -22,9 +22,6 @@ import (
 	"github.com/docker/machine/drivers/rackspace"
 	"github.com/docker/machine/drivers/softlayer"
 	"github.com/docker/machine/drivers/virtualbox"
-	"github.com/docker/machine/drivers/vmwarefusion"
-	"github.com/docker/machine/drivers/vmwarevcloudair"
-	"github.com/docker/machine/drivers/vmwarevsphere"
 	"github.com/docker/machine/libmachine/drivers/plugin"
 	"github.com/docker/machine/libmachine/drivers/plugin/localbinary"
 	"github.com/docker/machine/libmachine/log"
@@ -191,12 +188,6 @@ func runDriver(driverName string) {
 		plugin.RegisterDriver(softlayer.NewDriver("", ""))
 	case "virtualbox":
 		plugin.RegisterDriver(virtualbox.NewDriver("", ""))
-	case "vmwarefusion":
-		plugin.RegisterDriver(vmwarefusion.NewDriver("", ""))
-	case "vmwarevcloudair":
-		plugin.RegisterDriver(vmwarevcloudair.NewDriver("", ""))
-	case "vmwarevsphere":
-		plugin.RegisterDriver(vmwarevsphere.NewDriver("", ""))
 	default:
 		fmt.Fprintf(os.Stderr, "Unsupported driver: %s\n", driverName)
 		os.Exit(1)
